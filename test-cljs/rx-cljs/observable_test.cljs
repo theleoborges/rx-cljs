@@ -15,6 +15,14 @@
                        (swap! result #(conj % v)))))
       (is (= [4 6 8] @result))))
 
+  (testing "taking"
+    (let [result (atom [])]
+      (-> (o/from-array [4 6 8])
+          (o/take 2)
+          (o/subscribe (fn [v]
+                         (swap! result #(conj % v)))))
+      (is (= [4 6] @result))))
+  
   (testing "mapping"
     (-> (o/return-value 50)
         (o/map (fn [v] (* 2 v)))
@@ -27,7 +35,7 @@
         (o/reduce +)
         (o/subscribe (fn [v]
                      (is (= 36 v))))))
-
+  
   (testing "composing"
     (let [project-range (fn [n]
                           (o/return-value (range n)))

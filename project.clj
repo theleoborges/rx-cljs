@@ -1,4 +1,4 @@
-(defproject cljsbuild-example-simple "0.0.1"
+(defproject rx-cljs "0.0.1"
   :description "A ClojureScript wrapper for RxJS"
   :source-paths ["src-clj"]
   :dependencies [[org.clojure/clojure "1.5.1"]
@@ -8,6 +8,7 @@
             [lein-ring "0.7.0"]]
   :profiles {:dev
              {:dependencies [[com.cemerick/clojurescript.test "0.0.4"]]}}
+  :source-paths ["src-cljs"]
   :cljsbuild {
               :builds [{:source-paths ["src-cljs" "test-cljs"]
                         :compiler {:output-to "resources/public/js/main.js"
@@ -20,6 +21,4 @@
                                             "resources/private/js/rx.time.min.js"
                                             "resources/private/js/rx.aggregates.min.js"
                                             "resources/private/js/rx.coincidence.min.js"
-                                            "resources/public/js/main.js"]}}
-  
-  :ring {:handler example.routes/app})
+                                            "resources/public/js/main.js"]}})

@@ -7,8 +7,8 @@
 (defn from-array [coll]
   (.fromArray js/Rx.Observable (clj->js coll)))
 
-(defn subscribe [observable f]
-  (.subscribe observable f))
+(defn take [observable n]
+  (.take observable n))
 
 (defn map [observable f]
   (.map observable f))
@@ -18,3 +18,6 @@
 
 (defn select-many [observable sel]
   (.selectMany observable sel))
+
+(defn subscribe [observable f]
+  (.subscribe observable f))

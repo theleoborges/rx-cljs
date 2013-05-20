@@ -1,23 +1,59 @@
-# cljsbuild-example-simple
+# rx-cljs
 
-This is an example web application that uses [lein-cljsbuild][1],
-[Ring][2], and [Compojure][3].  It demonstrates the use of
-lein-cljsbuild to build ClojureScript into JavaScript.
+A ClojureScript wrapper for [Reactive Extensions (Rx) for Javascript](https://github.com/Reactive-Extensions/RxJS).
 
-To play around with this example project, you will first need
-[Leiningen][4] installed.
 
-## Running the App
+## Motivation
 
-Set up and start the server like this:
+The aim of this wrapper is to let developers write this:
 
-    $ lein deps
-    $ lein cljsbuild once
-    $ lein ring server-headless 3000
+```clojure
+(defn project-range [n]
+    (return-value (range n)))
+    
+(-> (from-array [4 6 8])
+    (select-many project-range)
+    (subscribe #(.log js/console (clj->js %))))
+```
 
-Now, point your web browser at `http://localhost:3000`, and see the web app in action!
+Instead of:
 
-[1]: https://github.com/emezeske/lein-cljsbuild
-[2]: https://github.com/mmcgrana/ring
-[3]: https://github.com/weavejester/compojure
-[4]: https://github.com/technomancy/leiningen
+```clojure
+(defn project-range [n]  (.returnValue js/Rx.Observable (range n)))(-> (.fromArray js/Rx.Observable                (clj->js [1 2 3]))    (.selectMany project-range)    (.subscribe #(.log js/console (clj->js %))))
+```
+
+## Usage
+
+Be warned: it's very early days and this wrapper is still very much incomplete.
+
+For the brave amongst you, keep reading.
+
+## What's in the package
+
+### Creating observables
+
+
+- return-value
+- from-array
+
+### Working with Observables
+
+- take
+- map
+- reduce
+- select-many
+- subscribe
+
+## TODO
+
+Everything else.
+
+## Contributing
+
+Bug reports and pull requests are much welcome. If submitting code, please add a test to it.
+
+## License
+
+Copyright (C) 2012 [Leonardo Borges](http://www.leonardoborges.com)
+
+Distributed under the Eclipse Public License, the same as Clojure.
