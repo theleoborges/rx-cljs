@@ -5,7 +5,13 @@
 
 var p = require('webpage').create();
 var sys = require('system');
-p.injectJs(sys.args[1]);
+
+//p.injectJs(sys.args[1]);
+var scripts = sys.args.slice(1);
+scripts.forEach(function(script){
+  console.log("Injecting " + script);
+  p.injectJs(script);
+})
 
 p.onConsoleMessage = function (x) {
   var line = x;

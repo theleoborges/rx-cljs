@@ -1,5 +1,5 @@
-(defproject cljsbuild-example-simple "0.3.2"
-  :description "A simple example of how to use lein-cljsbuild"
+(defproject cljsbuild-example-simple "0.0.1"
+  :description "A ClojureScript wrapper for RxJS"
   :source-paths ["src-clj"]
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [compojure "1.0.4"]
@@ -13,6 +13,13 @@
                         :compiler {:output-to "resources/public/js/main.js"
                                    :optimizations :whitespace
                                    :pretty-print true}}]
-              :test-commands {"unit-tests" ["runners/phantomjs.js" "resources/public/js/main.js"]}}
+              :test-commands {"unit-tests" ["runners/phantomjs.js"
+                                            "resources/private/js/rx.min.js"
+                                            "resources/private/js/rx.modern.min.js"
+                                            "resources/private/js/rx.binding.min.js"
+                                            "resources/private/js/rx.time.min.js"
+                                            "resources/private/js/rx.aggregates.min.js"
+                                            "resources/private/js/rx.coincidence.min.js"
+                                            "resources/public/js/main.js"]}}
   
   :ring {:handler example.routes/app})
