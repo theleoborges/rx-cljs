@@ -1,9 +1,7 @@
 (defproject rx-cljs "0.0.1-SNAPSHOT"
   :description "A ClojureScript wrapper for RxJS"
   :source-paths ["src-clj"]
-  :dependencies [[org.clojure/clojure "1.5.1"]
-                 [compojure "1.0.4"]
-                 [hiccup "1.0.0"]]
+  :dependencies [[org.clojure/clojure "1.5.1"]]
   :plugins [[lein-cljsbuild "0.3.2"]
             [lein-ring "0.7.0"]]
   :profiles {:dev
