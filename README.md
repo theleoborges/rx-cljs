@@ -29,7 +29,7 @@ Instead of:
 For the brave amongst you, add this to your `project.clj`:
 
 ```clojure
-[com.leonardoborges/rx-cljs "0.0.1-SNAPSHOT"]
+[com.leonardoborges/rx-cljs "0.0.2-SNAPSHOT"]
 ```
 
 Or if you're using maven:
@@ -38,7 +38,7 @@ Or if you're using maven:
 <dependency>
   <groupId>com.leonardoborges</groupId>
   <artifactId>rx-cljs</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
 </dependency>
 ```
 

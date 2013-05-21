@@ -1,4 +1,4 @@
-(defproject com.leonardoborges/rx-cljs "0.0.1-SNAPSHOT"
+(defproject com.leonardoborges/rx-cljs "0.0.2-SNAPSHOT"
   :description "A ClojureScript wrapper for RxJS"
   :url "http://github.com/leonardoborges/rx-cljs"
   :source-paths ["src-clj"]
