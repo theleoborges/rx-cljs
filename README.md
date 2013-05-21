@@ -42,6 +42,9 @@ Or if you're using maven:
 </dependency>
 ```
 
+For a sample app that uses this wrapper, check out this [repository](https://github.com/leonardoborges/frp-code).
+
+
 ## What's in the package
 
 ### Creating observables
@@ -96,6 +99,6 @@ Bug reports and pull requests are much welcome. If submitting code, please add a
 
 ## License
 
-Copyright (C) 2012 [Leonardo Borges](http://www.leonardoborges.com)
+Copyright (C) 2013 [Leonardo Borges](http://www.leonardoborges.com)
 
 Distributed under the Eclipse Public License, the same as Clojure.
