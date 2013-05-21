@@ -1,5 +1,6 @@
 (defproject com.leonardoborges/rx-cljs "0.0.1-SNAPSHOT"
   :description "A ClojureScript wrapper for RxJS"
+  :url "http://github.com/leonardoborges/rx-cljs"
   :source-paths ["src-clj"]
   :dependencies [[org.clojure/clojure "1.5.1"]]
   :plugins [[lein-cljsbuild "0.3.2"]]
