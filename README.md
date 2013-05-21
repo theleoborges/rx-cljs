@@ -32,7 +32,7 @@ For the brave amongst you, keep reading.
 
 ### Creating observables
 
-
+- create
 - return-value
 - from-array
 - interval
@@ -42,8 +42,23 @@ For the brave amongst you, keep reading.
 - take
 - map
 - reduce
+- skip
+- zip
 - select-many
 - subscribe
+- start-with
+- buffer-with-count
+
+### Working 2ith Connectable observables
+
+- publish
+- connect
+- ref-count
+
+### Working with Observers
+
+- on-next
+- on-completed
 
 ### Working with Subscriptions
 
