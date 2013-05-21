@@ -2,8 +2,7 @@
   :description "A ClojureScript wrapper for RxJS"
   :source-paths ["src-clj"]
   :dependencies [[org.clojure/clojure "1.5.1"]]
-  :plugins [[lein-cljsbuild "0.3.2"]
-            [lein-ring "0.7.0"]]
+  :plugins [[lein-cljsbuild "0.3.2"]]
   :profiles {:dev
              {:dependencies [[com.cemerick/clojurescript.test "0.0.4"]
                              [org.bodil/error "0.1.2"]]}}
