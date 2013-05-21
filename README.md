@@ -24,9 +24,23 @@ Instead of:
 
 ## Usage
 
-Be warned: it's very early days and this wrapper is still very much incomplete.
+**Be warned**: it's very early days and this wrapper is still very much incomplete.
 
-For the brave amongst you, keep reading.
+For the brave amongst you, add this to your `project.clj`:
+
+```clojure
+[com.leonardoborges/rx-cljs "0.0.1-SNAPSHOT"]
+```
+
+Or if you're using maven:
+
+```xml
+<dependency>
+  <groupId>com.leonardoborges</groupId>
+  <artifactId>rx-cljs</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
 
 ## What's in the package
 
@@ -49,7 +63,7 @@ For the brave amongst you, keep reading.
 - start-with
 - buffer-with-count
 
-### Working 2ith Connectable observables
+### Working with Connectable observables
 
 - publish
 - connect

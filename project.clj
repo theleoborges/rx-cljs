@@ -1,4 +1,4 @@
-(defproject rx-cljs "0.0.1-SNAPSHOT"
+(defproject com.leonardoborges/rx-cljs "0.0.1-SNAPSHOT"
   :description "A ClojureScript wrapper for RxJS"
   :source-paths ["src-clj"]
   :dependencies [[org.clojure/clojure "1.5.1"]]
@@ -9,12 +9,7 @@
                              [org.bodil/error "0.1.2"]]}}
   :hooks [leiningen.cljsbuild]
   :cljsbuild {
-              :builds {:dev {:source-paths ["src-cljs"]
-                             :compiler {:output-to "resources/public/js/main.js"
-                                        :optimizations :whitespace
-                                        :pretty-print true}
-                             :jar true}
-                       :test {:source-paths ["src-cljs" "test-cljs"]
+              :builds {:test {:source-paths ["src-cljs" "test-cljs"]
                               :compiler {:output-to "resources/public/js/test.js"
                                          :optimizations :whitespace
                                          :pretty-print true}}}
