@@ -9,7 +9,12 @@
                              [org.bodil/error "0.1.2"]]}}
   :hooks [leiningen.cljsbuild]
   :cljsbuild {
-              :builds {:test {:source-paths ["src-cljs" "test-cljs"]
+              :builds {:dev {:source-paths ["src-cljs"]
+                             :compiler {:output-to "resources/public/js/main.js"
+                                        :optimizations :whitespace
+                                        :pretty-print true}
+                             :jar true}
+                       :test {:source-paths ["src-cljs" "test-cljs"]
                               :compiler {:output-to "resources/public/js/test.js"
                                          :optimizations :whitespace
                                          :pretty-print true}}}
