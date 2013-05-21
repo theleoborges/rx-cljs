@@ -1,36 +1,35 @@
 #!/usr/bin/env phantomjs
 
-// reusable phantomjs script for running clojurescript.test tests
-// see http://github.com/cemerick/clojurescript.test for more info
+var page = require("webpage").create(),
+    sys = require("system");
 
-var p = require('webpage').create();
-var sys = require('system');
+page.onConsoleMessage = function(msg) {
+  console.log(msg);
+};
 
-//p.injectJs(sys.args[1]);
-var scripts = sys.args.slice(1);
-scripts.forEach(function(script){
-  console.log("Injecting " + script);
-  p.injectJs(script);
-})
-
-p.onConsoleMessage = function (x) {
-  var line = x;
-  if (line !== "[NEWLINE]") {
-    console.log(line.replace(/\[NEWLINE\]/g, "\n"));
+page.onCallback = function(msg) {
+  if (msg.cmd === "write") {
+    sys.stdout.write(msg.data);
+    sys.stdout.flush();
+  } else if (msg.cmd === "quit") {
+    phantom.exit(msg.data);
   }
 };
 
-p.evaluate(function () {
-  cemerick.cljs.test.set_print_fn_BANG_(function(x) {
-    console.log(x.replace(/\n/g, "[NEWLINE]")); // since console.log *itself* adds a newline
+page.onLoadFinished = function() {
+
+  var scripts = sys.args.slice(1);
+  scripts.forEach(function(script){
+    console.log("Injecting " + script);
+    page.injectJs(script);
   });
-});
+  page.evaluate(function() {
+    error.environment.in_repl = false;
+    cljs.core.string_print = function(s) {
+      window.callPhantom({cmd: "write", data: s});
+    };
+    error.test.run_tests();
+  });
+};
 
-var success = p.evaluate(function () {
-  var results = cemerick.cljs.test.run_all_tests();
-  console.log(results);
-  return cemerick.cljs.test.successful_QMARK_(results);
-});
-
-phantom.exit(success ? 0 : 1);
-
+page.open("about:blank");

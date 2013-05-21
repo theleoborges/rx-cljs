@@ -35,6 +35,7 @@ For the brave amongst you, keep reading.
 
 - return-value
 - from-array
+- interval
 
 ### Working with Observables
 
@@ -44,9 +45,21 @@ For the brave amongst you, keep reading.
 - select-many
 - subscribe
 
+### Working with Subscriptions
+
+- dispose
+
+## Running the tests
+
+From the project root:
+
+```bash
+$ lein cljsbuild test
+```
+
 ## TODO
 
-Everything else.
+Everything else. (but mainly other arities of functions already in here.)
 
 ## Contributing
 
